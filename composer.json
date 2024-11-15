@@ -1,6 +1,6 @@
 {
-    "name": "qweqrt/frameworkJura",
-    "description": "Denis 621",
+    "name": "qweqrt/framework_jura",
+    "description": "DD",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -10,13 +10,13 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.4 | ^8.0",
+        "php": "7.4 | 8.3.*",
         "illuminate/database": "^12.0@dev",
         "illuminate/events": "^12.0@dev"
     },
     "autoload": {
         "psr-4": {
-            "Src\\": "core/Src/",
+            "Src\\": "core/Src",
             "": "app/"
         }
     }

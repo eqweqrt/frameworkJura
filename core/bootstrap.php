@@ -1,26 +1,16 @@
 <?php
 
-const DIR_CONFIG = __DIR__ . '/../config';
+const DIR_CONFIG = '/../config';
 
-spl_autoload_register(function ($className) {
-    $paths = include DIR_CONFIG . '/path.php';
-    $className = str_replace('\\', '/', $className);
-
-    foreach ($paths['classes'] as $path) {
-        $fileName = __DIR__ . "/../$path/$className.php";
-        if (file_exists($fileName)) {
-            require_once $fileName;
-        }
-    }
-});
+require_once __DIR__ . '/../vendor/autoload.php';
 
 function getConfigs(string $path = DIR_CONFIG): array
 {
     $settings = [];
-    foreach (scandir($path) as $file) {
+    foreach (scandir(__DIR__ . $path) as $file) {
         $name = explode('.', $file)[0];
         if (!empty($name)) {
-            $settings[$name] = include "$path/$file";
+            $settings[$name] = include __DIR__ . "$path/$file";
         }
     }
     return $settings;
